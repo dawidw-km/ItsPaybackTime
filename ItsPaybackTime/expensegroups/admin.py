@@ -1,3 +1,7 @@
 from django.contrib import admin
+from .models import ExpenseGroup
 
-# Register your models here.
+class ExpenseGroupAdmin(admin.ModelAdmin):
+    list_display = ('name', 'created_by')
+
+admin.site.register(ExpenseGroup, ExpenseGroupAdmin)
