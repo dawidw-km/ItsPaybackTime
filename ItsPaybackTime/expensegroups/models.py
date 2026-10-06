@@ -8,6 +8,5 @@ class ExpenseGroup(models.Model):
     members = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='expense_groups')
 
     def __str__(self):
-        return f"ExpenseGroup(name={self.name}, created_by={self.created_by if self.created_by else 'User do not exist'}, created_at={self.created_at}, members={[member.username for member in self.members.all()]})"
-
+        return f"Name:{self.name} Created at:{self.created_at.strftime('%Y-%m-%d') if self.created_at else 'N/A'}" 
             

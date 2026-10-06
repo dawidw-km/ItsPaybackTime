@@ -45,19 +45,3 @@ class ExpenseGroupModelTest(TestCase):
 
         self.assertTrue(ExpenseGroup.objects.filter(id=expense_group.id).exists())
         self.assertIsNone(expense_group.created_by)
-
-    def test_deleted_user_from_group_displays_message(self):
-        user = self.create_user(
-            username='testuser',
-            email="testuser@example.com"
-        )
-
-        expense_group = ExpenseGroup.objects.create(
-            name='Test Expense Group',
-            created_by=user,
-        )
-
-        user.delete()
-        expense_group.refresh_from_db()
-
-        self.assertIn("User do not exist", str(expense_group))
