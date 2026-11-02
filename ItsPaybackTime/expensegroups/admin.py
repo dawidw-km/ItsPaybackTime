@@ -5,3 +5,4 @@ class ExpenseGroupAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_by')
 
 admin.site.register(ExpenseGroup, ExpenseGroupAdmin)
+ 
